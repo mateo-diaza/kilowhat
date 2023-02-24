@@ -12,6 +12,6 @@ export interface IDeviceTypeIds extends IDeviceBase {
 }
 
 export interface IDevice extends IDeviceBase {
-    office: IOffice;
-    emissions: IEmission;
+    office?: IOffice;
+    emissions?: Array<IEmission>;
 }

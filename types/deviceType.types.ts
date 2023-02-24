@@ -3,7 +3,6 @@ import { IDevice } from "./device.types";
 export interface IDeviceTypeBase {
     id: number;
     name: string;
-    location: string;
     created_at?: Date;
 }
 

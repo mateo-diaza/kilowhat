@@ -8,6 +8,6 @@ export interface ISensorBase {
 }
 
 export interface ISensor extends ISensorBase{
-    emissions: Array<IEmission>;
+    emissions?: Array<IEmission>;
 }
 

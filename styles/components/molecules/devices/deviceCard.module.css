@@ -1,0 +1,18 @@
+.container {
+    width: 15rem;
+    min-height: 18rem;
+    height: 100%;
+    padding: 0.5rem;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.title {
+    color: white;
+}
+
+.body {
+    flex: 1;
+}

@@ -4,9 +4,14 @@ import Head from 'next/head';
 import Layout from  '@/components/layout';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
+import { Comfortaa } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const comfronta = Comfortaa({
+  weight: '400',
+  subsets: ['latin']
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -18,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
         <title> KiloWhat </title>
       </Head>
-      <main className={styles.main}>
+      <main className={`${styles.main} ${comfronta.className}`}>
         <Layout>
           <Component {...pageProps} />
         </Layout>

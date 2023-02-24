@@ -3,7 +3,7 @@ import { ISensor } from "./sensor.types";
 
 export interface IEmissionBase {
     id: number;
-    created_at: Date;
+    created_at?: Date;
     value: number;
 }
 
@@ -13,6 +13,6 @@ export interface IEmissionIds extends IEmissionBase{
 }
 
 export interface IEmission extends IEmissionBase{
-    sensor: ISensor;
-    device: IDevice
+    sensor?: ISensor;
+    device?: IDevice
 }

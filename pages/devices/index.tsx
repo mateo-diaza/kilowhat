@@ -1,34 +1,76 @@
 import React from 'react';
+import { IDeviceType } from '@/types/deviceType.types';
+
+import DeviceRow from '@/components/molecules/devices/DeviceRow';
+
 import styles from '@/styles/Devices.module.css';
 
-const types = [
+const dufusTypes: Array<IDeviceType> = [
     {
-        id: '1',
+        id: 1,
         name: 'PC',
         devices: [
             {
-                id: 'id',
-                name: 'name',
+                id: 1,
+                name: 'alpha',
+                emissions: [
+                    {
+                        id: 1,
+                        value: 1.1,
+                        sensor: { id: 1, name: 'thermostat', unit: 'C'}
+                    },
+                    {
+                        id: 2,
+                        value: 100,
+                        sensor: { id: 1, name: 'thermostat', unit: 'C'}
+                    }
+
+                ]
             },
             {
-                id: 'id',
-                name: 'name',
-                emisiones: []
+                id: 2,
+                name: 'beta',
+                emissions: [
+                    {
+                        id: 1,
+                        value: 1.1,
+                        sensor: { id: 1, name: 'thermostat', unit: 'C'}
+                    },
+                    {
+                        id: 2,
+                        value: 100,
+                        sensor: { id: 1, name: 'thermostat', unit: 'C'}
+                    }
+
+                ]
             }
         ]
     },
     {
-    id: '2',
+        id: 2,
         name: 'Thermostat',
         devices: [
             {
-                id: 'id',
-                name: 'name',
+                id: 3,
+                name: 'epsilon',
             },
             {
-                id: 'id',
-                name: 'name',
-                emisiones: []
+                id: 4,
+                name: 'delta',
+            }
+        ]
+    },
+    {
+        id: 2,
+        name: 'Controller',
+        devices: [
+            {
+                id: 3,
+                name: 'eta',
+            },
+            {
+                id: 4,
+                name: 'omega',
             }
         ]
     }
@@ -37,8 +79,9 @@ const types = [
 const Devices: React.FC = () => {
     return (
         <div className={styles.container}> 
-            {}
-            Devices
+            {dufusTypes.map((deviceType: IDeviceType) => (
+                <DeviceRow deviceType={deviceType} />
+            ))}
         </div>
     )
 }
