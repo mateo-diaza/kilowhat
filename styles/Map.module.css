@@ -25,18 +25,24 @@
 }
 
 .mapContainer {
+  flex: 1;
   position: relative;
   display: flex;
-  width: 100%;
-  height: 80vh;
   margin: 0 1rem;
-  align-items: center;
-  justify-content: center;
 }
 
 .map {
-  width: auto;
+  width: 100%;
   height: 100%;
+  aspect-ratio: initial;
+  z-index: 0;
+}
+
+.marker {
+  position: absolute;
+  z-index: 1;
+  width: 3rem;
+  height: 3rem;
 }
 
 .activeDevices {
@@ -47,7 +53,6 @@
   margin: 0 1rem;
   align-items: center;
   justify-content: center;
-  z-index: 1;
   background-image: url("../public/planox.jpg");
   background-repeat: no-repeat;
   background-size: contain;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import mapa from "@/public/planox.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +11,20 @@ interface IProps {
 }
 
 const Map: React.FC<IProps> = ({ children }) => {
+
+  const refContainer = useRef<any>(null);
+  const pos = { x: 10, y: 50};
+
+  useEffect(() => {
+    if (!refContainer || !refContainer.current) { return; }
+    refContainer.current.addEventListener('mousemove', (e: any) => {
+      const boundary = e.target.getBoundingClientRect();
+      console.log({ 
+        x: e.clientX - boundary.left, 
+        y: e.clientY - boundary.top 
+       });
+    });
+  }, [])
   return (
     <div className={styles.layout}>
       <div className={styles.iconList}>
@@ -22,7 +36,10 @@ const Map: React.FC<IProps> = ({ children }) => {
         </div>
       </div>
       <div className={styles.mapContainer}>
-        <Image alt="" src={mapa} />
+          <Image className={styles.map} ref={refContainer} alt="" src={mapa} />
+          <div className={styles.marker} style={{ top: `${pos.x}%`, left: `${pos.y}%`}}>
+            <FontAwesomeIcon icon={faLaptop} />
+          </div>
         {/* <div className={styles.activeDevices} >
           <div className={styles.icon} style={{top: '20%', left: '75px'}}>
             <FontAwesomeIcon icon={faLaptop}/>
