@@ -1,10 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import supabase from '../../../utils/supabase'
-
-type Data = {
-    id: any,
-    name: any
-}
+import supabase from '../utils/supabase'
 
 export default async function handler(
     req: NextApiRequest,
