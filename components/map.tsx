@@ -16,7 +16,7 @@ interface IProps {
 const Map: React.FC<IProps> = ({ children }) => {
   const [devices, setDevices] = useState<any>();
   const [positionDevice, setPositionDevice] = useState<any>();
-  const refContainer = useRef<any>(null);
+  const refContainer = useRef(null);
 
   const { response, error, loading, refetch } = useFetch('/api/controllers/devices');
   
@@ -36,7 +36,7 @@ const Map: React.FC<IProps> = ({ children }) => {
 
   return (
     <div className={styles.layout}>
-      {refContainer && (<OffDevices ref={refContainer}/>)}
+      {refContainer && (<OffDevices imgRef={refContainer}/>)}
       
       <div className={styles.mapContainer}>
           <Image className={styles.map} ref={refContainer} alt="" src={mapa} />
