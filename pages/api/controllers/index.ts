@@ -1,10 +1,30 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import supabase from '../../../utils/supabase'
+import supabase from '../utils/supabase'
 
-type Data = {
-    id: any,
-    name: any
-}
+type CustomList = [
+  {
+    office: {
+      id: number,
+      name: string,
+      device: [
+        {
+          name: string,
+          emission: [
+            {
+              value: number,
+              sensor: [
+                {
+                  name: string,
+                  unit: string
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
 
 export default async function handler(
     req: NextApiRequest,
@@ -27,5 +47,5 @@ export default async function handler(
       )
     `);
     
-    res.status(200).json(result.data);
+    res.status(200).json(resultdata);
 }
