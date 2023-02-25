@@ -15,7 +15,7 @@ const DeviceCard: React.FC<IProps> = ({ device }) => {
     const getDataRow = (sensor: ISensor | undefined, value: number | undefined) => {
         if (!sensor || typeof value === 'undefined') { return <></> };
         return (
-            <div className={styles.sensor}>
+            <div key={`${device.id}-${sensor.id}`} className={styles.sensor}>
                 <span className={styles.sensorName}> { sensor.name } {' '} </span>
                 <span className={styles.sensorValue}> { value } {' '} { sensor.unit }</span>
             </div>
@@ -30,14 +30,6 @@ const DeviceCard: React.FC<IProps> = ({ device }) => {
                 </Title>
             </div>
             <div className={styles.body}>
-                {device.emissions && device.emissions.map(
-                    (
-                        emission: IEmission
-                    ) => getDataRow(emission.sensor, emission.value))}
-                {device.emissions && device.emissions.map(
-                    (
-                        emission: IEmission
-                    ) => getDataRow(emission.sensor, emission.value))}
                 {device.emissions && device.emissions.map(
                     (
                         emission: IEmission

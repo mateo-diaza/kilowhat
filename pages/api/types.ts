@@ -13,7 +13,7 @@ export default async function handler(
       device(
         id,
         name,
-        emissions: last_emissions(value:sum, created_at, device_id, sensor:sensor_id(name, unit))
+        emissions: last_emissions(value:sum, created_at, device_id, sensor:sensor_id(id, name, unit))
       )
     `);
     

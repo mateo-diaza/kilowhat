@@ -13,12 +13,12 @@ export interface IProps {
 const DeviceRow: React.FC<IProps> = ({ deviceType }) => {
     return (
         <div className={styles.row}>
-                <Title size="h1">
-                    {deviceType.name}
-                </Title>
+            <Title size="h1">
+                {deviceType.name}
+            </Title>
             <div className={styles.cardList}>
                 {deviceType.device.map((device: IDevice) => (
-                    <DeviceCard device={device} />
+                    <DeviceCard key={device.id} device={device} />
                 ))}
             </div>
         </div>

@@ -12,7 +12,8 @@ interface IProps {
 const Layout: React.FC<IProps> = ({ children }) => {
     return (
         <div className={styles.layout}>
-            <div className={styles.sidebar}>
+
+            <div className={styles.topbar}>
                 <Link href="/">
                     <div className={styles.linkButton}>
                         <div className={styles.linkButtonIcon}>
@@ -35,13 +36,9 @@ const Layout: React.FC<IProps> = ({ children }) => {
                     </div>
                 </Link>
             </div>
-            <div className={styles.info}>
-                <div className={styles.topbar}>
 
-                </div>
-                <div className={styles.content}>
-                    {children}
-                </div>
+            <div className={styles.content}>
+                {children}
             </div>
         </div>
     );
