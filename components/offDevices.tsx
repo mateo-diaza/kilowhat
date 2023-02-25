@@ -10,7 +10,7 @@ export interface IProps {
   ref: RefObject<HTMLDivElement>
 }
 
-const OffDevices: React.forwardRef = ( _:any, ref:any ) => {
+const OffDevices: React.forwardRef = ( props:any, ref:any ) => {
   const [offDevices, setOffDevices] = useState<any>();
 
   const { response, error, loading, refetch } = useFetch('/api/controllers/offDevices');
@@ -29,17 +29,12 @@ const OffDevices: React.forwardRef = ( _:any, ref:any ) => {
     }
   }
 
-  useEffect(() => {
-    
-  }, [])
-
-  const onStart = () => {
-    console.log('start')
+  const onStart = (e: any, data: any) => {
+    console.log(e.target)
   }
 
-  const onStop = (e: any) => {
+  const onStop = (e: any, data: any) => {
     if (!e.target) return;
-    console.log(ref)
     if (!ref || !ref.current) return;
       const boundary = ref.current.getBoundingClientRect();
       console.log({ 
@@ -48,8 +43,7 @@ const OffDevices: React.forwardRef = ( _:any, ref:any ) => {
       });
   };
 
-  const handleDrag = () => {
-
+  const handleDrag = (e: any, data: any) => {
   }
   
 

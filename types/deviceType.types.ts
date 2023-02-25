@@ -7,5 +7,5 @@ export interface IDeviceTypeBase {
 }
 
 export interface IDeviceType extends IDeviceTypeBase {
-    devices: Array<IDevice>
+    device: Array<IDevice>
 }

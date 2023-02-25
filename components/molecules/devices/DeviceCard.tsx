@@ -4,7 +4,6 @@ import { IDevice } from '@/types/device.types';
 import Title from '@/components/atoms/typography/Title';
 
 import styles from '@/styles/components/molecules/devices/deviceCard.module.css';
-import { isPartiallyEmittedExpression } from 'typescript';
 import { IEmission } from '@/types/emission.types';
 import { ISensor } from '@/types/sensor.types';
 
@@ -16,24 +15,25 @@ const DeviceCard: React.FC<IProps> = ({ device }) => {
     const getDataRow = (sensor: ISensor | undefined, value: number | undefined) => {
         if (!sensor || typeof value === 'undefined') { return <></> };
         return (
-            <>
-                <span> { sensor.name } {' '} </span>
-                <span> { value } {' '} </span>
-                <span> { sensor.unit } </span>
-            </>
+            <div key={`${device.id}-${sensor.id}`} className={styles.sensor}>
+                <span className={styles.sensorName}> { sensor.name } {' '} </span>
+                <span className={styles.sensorValue}> { value } {' '} { sensor.unit }</span>
+            </div>
         )
     };
 
     return (
         <div className={styles.container}>
-            <Title size="h2" className={styles.title}>
-                { device.name }
-            </Title>
+            <div className={styles.title}>
+                <Title size="h2" className={styles.title}>
+                    {device.name}
+                </Title>
+            </div>
             <div className={styles.body}>
                 {device.emissions && device.emissions.map(
                     (
                         emission: IEmission
-                    ) => getDataRow(emission.sensor, emission.sum))}
+                    ) => getDataRow(emission.sensor, emission.value))}
             </div>
         </div>
     );

@@ -11,10 +11,9 @@
 }
 
 .icon {
-  outline: 3px solid black;
   max-height: 4rem;
   padding: 0.3rem;
-  color: black;
+  color: var(--tertiary-color);
   border-radius: 0.5rem;
   justify-content: center;
   z-index: 50;
@@ -24,6 +23,15 @@
   width: 100%;
   max-height: 100%;
 }
+
+.icon:hover {
+  color:white;
+  cursor: pointer;
+  z-index: 100;
+  transition: background-color 0.3s ease-in;
+  background-color: var(--accent-color);
+}
+
 
 .mapContainer {
   flex: 1;
