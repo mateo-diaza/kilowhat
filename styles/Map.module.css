@@ -43,6 +43,8 @@
   position: absolute;
   z-index: 1;
   height: 3rem;
+  border-radius: 1rem;
+  padding: 2px;
 }
 
 .marker > svg {
@@ -58,10 +60,11 @@
 }
 
 .marker:hover {
-  color:blue;
+  color:white;
   cursor: pointer;
   z-index: 100;
-  background-color: grey;
+  transition: background-color 0.3s ease-in;
+  background-color: var(--accent-color);
 }
 
 .activeDevices {

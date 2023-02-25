@@ -15,15 +15,15 @@ export default async function handler(
     function createRandomEmission() {
       let number = (Math.random()*30).toFixed(2);
 
-      let time = Date.now() + (Math.random()*3600000)
+      let time = Date.now()
       return {
         device_id: Math.floor((Math.random()*11)+1),
-        sensor_id: 1,
+        sensor_id: 3,
         value: parseFloat(number)
       }
     }
 
-    Array.from({ length: 30 }).forEach(() => {
+    Array.from({ length: 100 }).forEach(() => {
       devices.push(createRandomEmission())
     } 
     )
