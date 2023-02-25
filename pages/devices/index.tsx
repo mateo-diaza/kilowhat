@@ -1,4 +1,5 @@
-import React,{ useEffect, useState } from 'react';
+import React,{ useEffect, useState, createContext } from 'react';
+import { useRouter } from 'next/router';
 import { Socket } from "socket.io-client";
 
 import DeviceRow from '@/components/molecules/devices/DeviceRow';

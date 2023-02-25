@@ -8,6 +8,7 @@ import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import styles from '@/styles/Map.module.css';
 import useFetch from "@/hooks/useFetch";
 import OffDevices from "./offDevices";
+import Link from "next/link";
 
 interface IProps {
   children?: JSX.Element
@@ -41,12 +42,22 @@ const Map: React.FC<IProps> = ({ children }) => {
       <div className={styles.mapContainer}>
           <Image className={styles.map} ref={refContainer} alt="" src={mapa} />
           {devices && devices.map((device: any) => (
+<<<<<<< HEAD
             <div key={device.id} className={styles.marker} style={{ left: `${device.pos_x}%`, top: `${device.pos_y}%`}}>
               <FontAwesomeIcon icon={deviceIcon(device.type_id)} />
               <div className={styles.deviceInfo}>
                 <div>{device.name}</div>
+=======
+            <Link href={`/devices?id=${device.id}`}>
+              <div key={device.id} className={styles.marker} style={{ top: `${device.pos_x}%`, left: `${device.pos_y}%` }}>
+                <FontAwesomeIcon icon={deviceIcon(device.type_id)} />
+                <div className={styles.deviceInfo}>
+                  <div>{device.name}</div>
+                </div>
+>>>>>>> 3a6c1cbe0ea80f271162343c57f1f9975c036f6c
               </div>
-            </div>)
+            </Link>
+            )
           )}
       </div>
     </div>
