@@ -18,7 +18,7 @@ export default async function handler(
       let time = Date.now()
       return {
         device_id: Math.floor((Math.random()*11)+1),
-        sensor_id: 3,
+        sensor_id: Math.floor((Math.random()*3)+1),
         value: parseFloat(number)
       }
     }
