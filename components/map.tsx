@@ -3,9 +3,11 @@ import Image from "next/image";
 import mapa from "@/public/planox.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLaptop, faTemperatureHalf } from '@fortawesome/free-solid-svg-icons'
+import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 
 import styles from '@/styles/Map.module.css';
 import useFetch from "@/hooks/useFetch";
+import OffDevices from "./offDevices";
 
 interface IProps {
   children?: JSX.Element
@@ -13,6 +15,7 @@ interface IProps {
 
 const Map: React.FC<IProps> = ({ children }) => {
   const [devices, setDevices] = useState<any>();
+  const [positionDevice, setPositionDevice] = useState<any>();
   const refContainer = useRef<any>(null);
 
   const { response, error, loading, refetch } = useFetch('/api/controllers/devices');
@@ -22,19 +25,6 @@ const Map: React.FC<IProps> = ({ children }) => {
       setDevices(response)
     }
   }, [response])
-
-  useEffect(() => {
-    if (!refContainer || !refContainer.current) { return; }
-    refContainer.current.addEventListener('mousemove', (e: any) => {
-      const boundary = e.target.getBoundingClientRect();
-      /*console.log({ 
-        x: e.clientX - boundary.left, 
-        y: e.clientY - boundary.top 
-      });*/
-    });
-
-    
-  }, [])
 
   function deviceIcon(device: any) {
     if (device === 1) {
@@ -46,14 +36,8 @@ const Map: React.FC<IProps> = ({ children }) => {
 
   return (
     <div className={styles.layout}>
-      <div className={styles.iconList}>
-        <div className={styles.icon}>
-          <FontAwesomeIcon icon={faLaptop} />
-        </div>
-        <div className={styles.icon}>
-          <FontAwesomeIcon icon={faTemperatureHalf} />
-        </div>
-      </div>
+      {refContainer && (<OffDevices ref={refContainer}/>)}
+      
       <div className={styles.mapContainer}>
           <Image className={styles.map} ref={refContainer} alt="" src={mapa} />
           {devices && devices.map((device: any) => (
