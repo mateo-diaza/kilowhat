@@ -28,9 +28,9 @@
 }
 
 .linkButtonIcon {
-    outline: 3px solid var(--seconday-color);
+    outline: 3px solid var(--secondary-color);
     padding: 0.3rem;
-    color: var(--seconday-color);
+    color: var(--secondary-color);
     border-radius: 0.5rem;
 }
 
@@ -49,5 +49,4 @@
 .content {
     flex: 1;
     padding: 2rem;
-    background-color: lightgrey;
 }
