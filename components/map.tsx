@@ -44,6 +44,8 @@ const Map: React.FC<IProps> = ({ children }) => {
     }
   }
 
+  console.log(devices)
+
   return (
     <div className={styles.layout}>
       <div className={styles.iconList}>
@@ -59,9 +61,11 @@ const Map: React.FC<IProps> = ({ children }) => {
           {devices && devices.map((device: any) => (
             <div key={device.id} className={styles.marker} style={{ top: `${device.pos_x}%`, left: `${device.pos_y}%`}}>
               <FontAwesomeIcon icon={deviceIcon(device.type_id)} />
-              {device.name}
+              <div className={styles.deviceInfo}>
+                <div>{device.name}</div>
+                <div>{device.last_emissions[0].sensors.name + `: ` + device.last_emissions[0].sum}</div>
+              </div>
             </div>)
-            
           )}
       </div>
     </div>
