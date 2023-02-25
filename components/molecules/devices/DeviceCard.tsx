@@ -24,10 +24,20 @@ const DeviceCard: React.FC<IProps> = ({ device }) => {
 
     return (
         <div className={styles.container}>
-            <Title size="h2" className={styles.title}>
-                { device.name }
-            </Title>
+            <div className={styles.title}>
+                <Title size="h2" className={styles.title}>
+                    {device.name}
+                </Title>
+            </div>
             <div className={styles.body}>
+                {device.emissions && device.emissions.map(
+                    (
+                        emission: IEmission
+                    ) => getDataRow(emission.sensor, emission.value))}
+                {device.emissions && device.emissions.map(
+                    (
+                        emission: IEmission
+                    ) => getDataRow(emission.sensor, emission.value))}
                 {device.emissions && device.emissions.map(
                     (
                         emission: IEmission
