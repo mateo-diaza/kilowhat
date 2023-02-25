@@ -51,6 +51,19 @@
   max-height: 3rem;
 }
 
+.deviceInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.marker:hover {
+  color:blue;
+  cursor: pointer;
+  z-index: 100;
+  background-color: grey;
+}
+
 .activeDevices {
   position: relative;
   display: flex;

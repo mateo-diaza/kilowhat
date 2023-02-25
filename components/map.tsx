@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLaptop, faTemperatureHalf } from '@fortawesome/free-solid-svg-icons'
 
 import styles from '@/styles/Map.module.css';
+import useFetch from "@/hooks/useFetch";
 
 interface IProps {
   children?: JSX.Element
@@ -13,17 +14,16 @@ interface IProps {
 const Map: React.FC<IProps> = ({ children }) => {
   const [devices, setDevices] = useState<any>();
   const refContainer = useRef<any>(null);
-  
-  const fetchData = () => {
-    fetch('http://localhost:3000/api/controllers/devices')
-      .then(response => response.json())
-      .then(json => {
-        setDevices(json)
-      })
-  }
+
+  const { response, error, loading, refetch } = useFetch('/api/controllers/devices');
   
   useEffect(() => {
-    fetchData();
+    if(response) {
+      setDevices(response)
+    }
+  }, [response])
+
+  useEffect(() => {
     if (!refContainer || !refContainer.current) { return; }
     refContainer.current.addEventListener('mousemove', (e: any) => {
       const boundary = e.target.getBoundingClientRect();
@@ -43,8 +43,6 @@ const Map: React.FC<IProps> = ({ children }) => {
       return faTemperatureHalf
     }
   }
-
-  console.log(devices)
 
   return (
     <div className={styles.layout}>
