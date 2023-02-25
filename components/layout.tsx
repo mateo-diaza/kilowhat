@@ -14,27 +14,30 @@ const Layout: React.FC<IProps> = ({ children }) => {
         <div className={styles.layout}>
 
             <div className={styles.topbar}>
-                <Link href="/">
-                    <div className={styles.linkButton}>
-                        <div className={styles.linkButtonIcon}>
-                            <FontAwesomeIcon icon={faMap} />
+                <h1>KiloWhat⚡📊🌍</h1>
+                <div className={styles.navbuttons}>
+                    <Link href="/">
+                        <div className={styles.linkButton}>
+                            <div className={styles.linkButtonIcon}>
+                                <FontAwesomeIcon icon={faMap} />
+                            </div>
                         </div>
-                    </div>
-                </Link>
-                <Link href="/devices">
-                    <div className={styles.linkButton}>
-                        <div className={styles.linkButtonIcon}>
-                            <FontAwesomeIcon icon={faLaptop} />
+                    </Link>
+                    <Link href="/devices">
+                        <div className={styles.linkButton}>
+                            <div className={styles.linkButtonIcon}>
+                                <FontAwesomeIcon icon={faLaptop} />
+                            </div>
                         </div>
-                    </div>
-                </Link>
-                <Link href="/targets">
-                    <div className={styles.linkButton}>
-                        <div className={styles.linkButtonIcon}>
-                            <FontAwesomeIcon icon={faBullseye} />
+                    </Link>
+                    <Link href="/targets">
+                        <div className={styles.linkButton}>
+                            <div className={styles.linkButtonIcon}>
+                                <FontAwesomeIcon icon={faBullseye} />
+                            </div>
                         </div>
-                    </div>
-                </Link>
+                    </Link>
+                </div>
             </div>
 
             <div className={styles.content}>

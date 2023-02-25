@@ -5,15 +5,20 @@
     flex-direction: column;
 }
 
+.navbuttons {
+    display: flex;
+}
+
 .topbar {
     border-bottom: 1px solid var(--tertiary-color);
     height: 4rem;
     padding-right: 3rem;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    padding-left: 1rem;
 }
 
 .linkButton {
