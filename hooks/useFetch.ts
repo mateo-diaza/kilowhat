@@ -43,7 +43,7 @@ const useFetch = <T>(url: string, options: IOptions = {}) => {
         return () => {
             controller.abort();
         }
-    }, [counter]);
+    }, [counter, url]);
 
     return { response, loading, error, refetch };
 };
