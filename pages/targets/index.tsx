@@ -4,7 +4,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 
 const Targets = () => {
 
-    const [ sensorId, setSensorId] = useState(2);
+    const [ sensorId, setSensorId] = useState(1);
     const [ graphicTitle, setGraphicTitle] = useState('Power');
     const [ lineColor, setLineColor] = useState('#FFD700');
 
