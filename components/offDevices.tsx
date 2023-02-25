@@ -46,7 +46,7 @@ const OffDevices: React.FC<IProps> = ({ imgRef }) => {
     const boundary = imgRef.current.getBoundingClientRect();
     const { left, right } = boundary;
     const sizeX: number = right - left;
-
+    
     const percentage = 100 * (x-left) / sizeX;
 
     return percentage;
@@ -60,7 +60,6 @@ const OffDevices: React.FC<IProps> = ({ imgRef }) => {
     const sizeY: number = bottom - top;
 
     const percentage = 100 * (y-top) / sizeY;
-
     return percentage;
   }, [imgRef]);
 

@@ -12,7 +12,7 @@ export default async function handler(
         const body = JSON.parse(req.body);
         const { pos_x, pos_y } = body;
 
-        console.log({ pos_x, pos_y});
+        console.log({ posx: parseInt(pos_x), posy: parseInt(pos_y)});
         const { error } = await supabase
             .from('device')
             .update({ pos_x: parseInt(pos_x), pos_y: parseInt(pos_y)})

@@ -41,7 +41,7 @@ const Map: React.FC<IProps> = ({ children }) => {
       <div className={styles.mapContainer}>
           <Image className={styles.map} ref={refContainer} alt="" src={mapa} />
           {devices && devices.map((device: any) => (
-            <div key={device.id} className={styles.marker} style={{ top: `${device.pos_x}%`, left: `${device.pos_y}%`}}>
+            <div key={device.id} className={styles.marker} style={{ left: `${device.pos_x}%`, top: `${device.pos_y}%`}}>
               <FontAwesomeIcon icon={deviceIcon(device.type_id)} />
               <div className={styles.deviceInfo}>
                 <div>{device.name}</div>
