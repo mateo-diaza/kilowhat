@@ -29,11 +29,12 @@ ChartJS.register(
 
 export interface IProps {
     sensorId: number;
+    objective: number
     graphicTitle?: string
     lineColor?: Color
 }
 
-const EmissionGraphic: React.FC<IProps> = ({ sensorId, graphicTitle, lineColor}: IProps) => {
+const EmissionGraphic: React.FC<IProps> = ({ sensorId, objective, graphicTitle, lineColor}: IProps) => {
 
     const options = {
         responsive: true,
@@ -53,6 +54,12 @@ const EmissionGraphic: React.FC<IProps> = ({ sensorId, graphicTitle, lineColor}:
     const { response: response } = useFetch(`/api/controllers/emissions?sensorid=${sensorId}`);
     console.log(response);
 
+    useEffect(() => {
+        if(response) {
+            setData(response)
+        }
+    }, [response]);
+
     const labels: Array<string> = useMemo(() => {
         if (!data) { return []; }
         return data
@@ -68,15 +75,17 @@ const EmissionGraphic: React.FC<IProps> = ({ sensorId, graphicTitle, lineColor}:
             .filter((v) => v);
     }, [data]);
 
-    useEffect(() => {
-        if(response) {
-            setData(response)
-        }
-    }, [response]);
-
     const chartData = {
         labels: labels,
         datasets: [{
+            label: 'Objective',
+            data: labels.map(() => objective),
+            fill: false,
+            borderColor: 'red',
+            tension: 0.6,
+            pointRadius: 0
+        },    
+        {
             label: graphicTitle,
             data: values,
             fill: false,
@@ -85,7 +94,7 @@ const EmissionGraphic: React.FC<IProps> = ({ sensorId, graphicTitle, lineColor}:
         }]
     };
 
-    //if (!values || !labels) { return (<></>)}
+    if (!values || !labels) { return (<></>)}
     return (
         <div>
             <Line options={options} data={chartData} />
