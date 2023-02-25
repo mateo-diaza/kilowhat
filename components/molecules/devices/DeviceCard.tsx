@@ -1,5 +1,6 @@
 import React from 'react';
 import { IDevice } from '@/types/device.types';
+import { useRouter } from 'next/router';
 
 import Title from '@/components/atoms/typography/Title';
 
@@ -12,6 +13,8 @@ export interface IProps {
 }
 
 const DeviceCard: React.FC<IProps> = ({ device }) => {
+    const router = useRouter();
+    const { id } = router.query;
     const getDataRow = (sensor: ISensor | undefined, value: number | undefined) => {
         if (!sensor || typeof value === 'undefined') { return <></> };
         return (
@@ -23,7 +26,7 @@ const DeviceCard: React.FC<IProps> = ({ device }) => {
     };
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${id === device.id.toString() ? styles.containerActive : ''}`}>
             <div className={styles.title}>
                 <Title size="h2" className={styles.title}>
                     {device.name}
