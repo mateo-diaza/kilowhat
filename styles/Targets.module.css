@@ -1,0 +1,19 @@
+.graphicButton{
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0.8em;
+    background-color: var(--tertiary-color);
+    color: white;
+    width: 8em;
+    transition: all 0.2s ease-in;
+    border: none;
+    cursor: pointer;
+}
+
+.graphicButton:hover {
+    background-color: #7580a5
+}
+
+.graphicButton:active {
+    transform: translate(-2%, -2%);
+}
