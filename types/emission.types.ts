@@ -15,4 +15,5 @@ export interface IEmissionIds extends IEmissionBase{
 export interface IEmission extends IEmissionBase{
     sensor?: ISensor;
     device?: IDevice
+    sum?:number;
 }
