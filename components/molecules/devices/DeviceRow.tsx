@@ -17,7 +17,7 @@ const DeviceRow: React.FC<IProps> = ({ deviceType }) => {
                 {deviceType.name}
             </Title>
             <div className={styles.cardList}>
-                {deviceType.devices.map((device: IDevice) => (
+                {deviceType.device.map((device: IDevice) => (
                     <DeviceCard device={device} />
                 ))}
             </div>

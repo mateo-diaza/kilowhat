@@ -4,8 +4,8 @@ interface IOptions {
     headers?: { [x: string]: string }
 }
 
-const useFetch = (url: string, options: IOptions = {}) => {
-    const [response, setResponse] = useState(null);
+const useFetch = <T>(url: string, options: IOptions = {}) => {
+    const [response, setResponse] = useState<T | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [controller] = useState<AbortController>(new AbortController());
