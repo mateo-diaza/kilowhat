@@ -45,7 +45,6 @@ const Map: React.FC<IProps> = ({ children }) => {
               <FontAwesomeIcon icon={deviceIcon(device.type_id)} />
               <div className={styles.deviceInfo}>
                 <div>{device.name}</div>
-                <div>{device.last_emissions[0].sensors.name + `: ` + device.last_emissions[0].sum}</div>
               </div>
             </div>)
           )}
