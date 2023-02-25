@@ -51,6 +51,7 @@
 .marker {
   display: flex;
   position: absolute;
+  transform: translate(-30%,-30%);
   z-index: 1;
   height: 3rem;
   border-radius: 1rem;
